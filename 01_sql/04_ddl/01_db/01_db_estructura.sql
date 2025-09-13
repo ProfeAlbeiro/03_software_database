@@ -1,4 +1,4 @@
-DROP DATABASE BBDD_INVENTARIO;
+-- DROP DATABASE BBDD_INVENTARIO;
 -- -----------------------------------------------------
 -- Estructura BBDD_INVENTARIO
 -- -----------------------------------------------------
