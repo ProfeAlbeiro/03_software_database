@@ -10,6 +10,7 @@
 ||| --  04. DISEÑO FÍSICO DE LA BASE DE DATOS                                                                                                                          |||
 ||| --  05. CONSULTAS EN LA BASE DE DATOS                                                                                                                              |||
 ||| --  06. CONSULTAS AVANZADAS EN LA BASE DE DATOS                                                                                                                    |||
+||| --  07. SEGURIDAD EN LA BASE DE DATOS                                                                                                                              |||
 |||                                                                                                                                                                    |||
 ||| --  ANEXOS: TENER EN CUENTA                                                                                                                                        |||
 ||| --          AX_01.  Subir el Proyecto a Github                                                                                                                     |||
@@ -33,8 +34,9 @@
 ||| --      04.01.  SQL: Lenguaje de Consulta Estructurada (Structured Query Language)                                                                                 |||
 ||| --      04.02.  DDL: Lenguaje de Definición de Datos (Data Definition Language)                                                                                    |||
 ||| --  05. CONSULTAS EN LA BASE DE DATOS                                                                                                                              |||
-||| --      05.01.  DML: Lenguaje de Manipulación de Datos (Data Manipulation Language). Una tabla                                                                     |||
-||| --      05.02.  DML: Lenguaje de Manipulación de Datos (Data Manipulation Language). Multitabla                                                                    |||
+||| --      05.01.  DML: Lenguaje de Manipulación de Datos (Data Manipulation Language). Datos                                                                         |||
+||| --      05.02.  DML: Lenguaje de Manipulación de Datos (Data Manipulation Language). Una tabla                                                                     |||
+||| --      05.03.  DML: Lenguaje de Manipulación de Datos (Data Manipulation Language). Multitabla                                                                    |||
 ||| --  06. CONSULTAS AVANZADAS EN LA BASE DE DATOS                                                                                                                    |||
 ||| --      06.01.  VIEWS: Vistas                                                                                                                                      |||
 ||| --      06.02.  PROCEDURES: Procedimientos Almacenados                                                                                                             |||
