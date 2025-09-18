@@ -8,16 +8,17 @@
 -- |||                                                                                                                                                                 |||
 -- ||| --  01. MOSTRAR LAS BASES DE DATOS .............................................................................. SHOW DATABASES ;                              |||
 -- ||| --  02. CREAR UNA BASE DE DATOS ................................................................................. CREATE DATABASE ____ ;                        |||
--- ||| --  02. USAR UNA BASE DE DATOS .................................................................................. USE ____ ;                                    |||
--- ||| --  03. ELIMINAR UNA BASE DE DATOS .............................................................................. DROP DATABASE ____ ;                          |||
--- ||| --  04. MOSTRAR TABLAS .......................................................................................... SHOW TABLES ____ ;                            |||
--- ||| --  05. MOSTRAR COLUMNAS ........................................................................................ SHOW COLUMNS FROM ____ . DESCRIBE ____ ;      |||
+-- ||| --  03. USAR UNA BASE DE DATOS .................................................................................. USE ____ ;                                    |||
+-- ||| --  04. ELIMINAR UNA BASE DE DATOS .............................................................................. DROP DATABASE ____ ;                          |||
+-- ||| --  05. MOSTRAR TABLAS .......................................................................................... SHOW TABLES ____ ;                            |||
+-- ||| --  06. AGREGAR COLUMNAS ........................................................................................ SHOW COLUMNS FROM ____ . DESCRIBE ____ ;      |||
+-- ||| --  07. MOSTRAR COLUMNAS ........................................................................................ ALTER TABLE ____ ADD ____ ____ ;              |||
+-- ||| --  08. RENOMBRAR COLUMNA ....................................................................................... ALTER TABLE ____ CHANGE ____ ____ ;           |||
+-- ||| --  09. ELIMINAR COLUMNA ........................................................................................ ALTER TABLE ____ DROP ____ ;                  |||
 
-/* 04. Mostrar Tablas : ................... SHOW TABLES __.                              */
-/* 05. Mostar Columnas : .................. SHOW COLUMNS FROM __ . DESCRIBE __           */
-/* 06. Agregar Columna : .................. ALTER TABLE __ ADD __ __                     */
-/* 07. Renombrar Columna : ................ ALTER TABLE __ CHANGE __ __                  */
-/* 08. Eliminar Columna : ................. ALTER TABLE __ DROP __                       */
+/* 06. Agregar Columna : ..................                      */
+/* 07. Renombrar Columna : ................                   */
+/* 08. Eliminar Columna : .................                        */
 /* 09. Agregar Valor x Defecto Columna : .. ALTER TABLE __ ALTER __ SET DEFAULT __       */
 /* 10. Eliminar Valor x Defecto Columna : . ALTER TABLE __ ALTER __ DROP DEFAULT         */
 /* 11. Mostrar Creación Tabla : ........... SHOW CREATE TABLE __                         */
