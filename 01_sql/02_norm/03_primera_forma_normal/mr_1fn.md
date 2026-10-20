@@ -108,11 +108,12 @@ Tu modelo está muy cerca de cumplir con la **1FN**. Los tres ajustes requeridos
 2. **`LISTA_PRODUCTOS_PEDIDOS` sin PK:** Declarar `PRIMARY KEY (codigo_pedido, codigo_producto)`.
 3. **`LISTA_PRODUCTOS_COMPRADOS` sin PK e inconsistente:** Declarar `PRIMARY KEY (codigo_compra, codigo_producto)` y corregir el tipo de dato de `codigo_producto` a `VARCHAR(10)`.
 
-### 🧪 Pruebas que te sugiero hacer ahora
+## 🧪 Pruebas que te sugiero hacer ahora
 
-Ejecuta en MySQL estas consultas para confirmar lo que te digo:
+**Ejecuta en MySQL estas consultas para confirmar lo que te digo:**
 
-´´´sql
+```sql
+
 -- 1) Ver qué tablas NO tienen PRIMARY KEY
 SELECT t.table_name
 FROM information_schema.tables t
@@ -134,4 +135,4 @@ SELECT constraint_name, table_name, referenced_table_name
 FROM information_schema.key_column_usage
 WHERE table_schema = 'bbdd_ventas'
   AND table_name = 'LISTA_PRODUCTOS_COMPRADOS';
-´´´
+```
