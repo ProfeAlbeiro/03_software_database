@@ -107,3 +107,31 @@ Tu modelo está muy cerca de cumplir con la **1FN**. Los tres ajustes requeridos
 1. **`MENSAJES` sin PK:** Añadir `codigo_mensaje INT AUTO_INCREMENT` como PK.
 2. **`LISTA_PRODUCTOS_PEDIDOS` sin PK:** Declarar `PRIMARY KEY (codigo_pedido, codigo_producto)`.
 3. **`LISTA_PRODUCTOS_COMPRADOS` sin PK e inconsistente:** Declarar `PRIMARY KEY (codigo_compra, codigo_producto)` y corregir el tipo de dato de `codigo_producto` a `VARCHAR(10)`.
+
+### 🧪 Pruebas que te sugiero hacer ahora
+
+Ejecuta en MySQL estas consultas para confirmar lo que te digo:
+
+´´´sql
+-- 1) Ver qué tablas NO tienen PRIMARY KEY
+SELECT t.table_name
+FROM information_schema.tables t
+LEFT JOIN information_schema.table_constraints tc
+  ON t.table_name = tc.table_name
+ AND tc.constraint_type = 'PRIMARY KEY'
+ AND t.table_schema = tc.table_schema
+WHERE t.table_schema = 'bbdd_ventas'
+  AND tc.constraint_name IS NULL;
+
+-- 2) Verificar tipos de codigo_producto en las 3 tablas
+SELECT table_name, column_name, data_type, character_maximum_length
+FROM information_schema.columns
+WHERE table_schema = 'bbdd_ventas'
+  AND column_name = 'codigo_producto';
+
+-- 3) Ver si las FK de LISTA_PRODUCTOS_COMPRADOS se crearon bien
+SELECT constraint_name, table_name, referenced_table_name
+FROM information_schema.key_column_usage
+WHERE table_schema = 'bbdd_ventas'
+  AND table_name = 'LISTA_PRODUCTOS_COMPRADOS';
+´´´
