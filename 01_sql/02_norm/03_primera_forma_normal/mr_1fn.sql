@@ -1,11 +1,12 @@
 -- =====================================================
 -- BASE DE DATOS: bbdd_ventas
--- Versión con correcciones de Primera Forma Normal (1FN)
+-- Ajustes aplicados: Primera Forma Normal (1FN)
 -- =====================================================
 
 DROP DATABASE IF EXISTS bbdd_ventas;
-CREATE DATABASE bbdd_ventas DEFAULT CHARACTER SET utf8;
+CREATE DATABASE bbdd_ventas DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE bbdd_ventas;
+
 
 -- -----------------------------------------------------
 -- Table ROLES
@@ -60,9 +61,8 @@ ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table MENSAJES
+-- ⚙️ 1FN: se agregó codigo_mensaje como PK (antes no tenía)
 -- -----------------------------------------------------
--- [MEJORA 1FN] Se agregó PK autoincremental 'codigo_mensaje'
--- porque la tabla no tenía PRIMARY KEY declarada.
 CREATE TABLE MENSAJES (
   codigo_mensaje INT NOT NULL AUTO_INCREMENT,
   codigo_user VARCHAR(10) NOT NULL,
@@ -151,9 +151,8 @@ ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table LISTA_PRODUCTOS_PEDIDOS
+-- ⚙️ 1FN: se agregó PRIMARY KEY compuesta (antes no tenía)
 -- -----------------------------------------------------
--- [MEJORA 1FN] Se agregó PRIMARY KEY compuesta
--- (codigo_pedido, codigo_producto) que antes no existía.
 CREATE TABLE LISTA_PRODUCTOS_PEDIDOS (
   codigo_pedido VARCHAR(10) NOT NULL,
   codigo_producto VARCHAR(10) NOT NULL,
@@ -196,9 +195,9 @@ ENGINE = InnoDB;
 CREATE TABLE VENDEDORES_PEDIDOS (
   codigo_seller VARCHAR(10) NOT NULL,
   codigo_pedido VARCHAR(10) NOT NULL,
+  PRIMARY KEY (codigo_pedido),
   INDEX ind_credencial_pedido_vendedor (codigo_seller ASC),
   INDEX ind_credencial_pedido_pedido (codigo_pedido ASC),
-  PRIMARY KEY (codigo_pedido),
   CONSTRAINT fk_credencial_pedido_vendedor
     FOREIGN KEY (codigo_seller)
     REFERENCES VENDEDORES (codigo_seller)
@@ -226,11 +225,8 @@ ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table LISTA_PRODUCTOS_COMPRADOS
+-- ⚙️ 1FN: PK compuesta + codigo_producto corregido de VARCHAR(45) a VARCHAR(10)
 -- -----------------------------------------------------
--- [MEJORA 1FN] Se agregó PRIMARY KEY compuesta
--- (codigo_compra, codigo_producto) que antes no existía.
--- [MEJORA 1FN] Se cambió codigo_producto de VARCHAR(45) a VARCHAR(10)
--- para que coincida con PRODUCTOS.codigo_producto y la FK sea consistente.
 CREATE TABLE LISTA_PRODUCTOS_COMPRADOS (
   codigo_compra VARCHAR(10) NOT NULL,
   codigo_producto VARCHAR(10) NOT NULL,
