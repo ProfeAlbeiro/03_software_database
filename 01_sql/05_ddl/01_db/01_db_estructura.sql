@@ -1,4 +1,4 @@
--- DROP DATABASE BBDD_INVENTARIO;
+DROP DATABASE IF EXISTS BBDD_INVENTARIO;
 -- -----------------------------------------------------
 -- Estructura BBDD_INVENTARIO
 -- -----------------------------------------------------
@@ -46,8 +46,6 @@ CREATE TABLE CREDENCIALES (
   PRIMARY KEY (codigo_cred),
   INDEX ind_credencial_usuario (codigo_cred ASC),
   UNIQUE INDEX uq_identificacion_cred (identificacion_cred ASC),
-  CONSTRAINT chk_evitarPersona 
-    CHECK (codigo_cred NOT LIKE '%person%'),
   CONSTRAINT fk_credencial_usuario
     FOREIGN KEY (codigo_cred)
     REFERENCES USUARIOS (codigo_user)
@@ -108,8 +106,6 @@ CREATE TABLE CLIENTES (
   fecha_nac_customer DATE NOT NULL,
   PRIMARY KEY (codigo_customer),
   INDEX ind_cliente_credencial (codigo_customer ASC),
-  CONSTRAINT chk_soloCliente 
-  CHECK (codigo_customer LIKE '%customer%'),
   CONSTRAINT fk_cliente_credencial
     FOREIGN KEY (codigo_customer)
     REFERENCES CREDENCIALES (codigo_cred)
@@ -168,8 +164,6 @@ CREATE TABLE VENDEDORES (
   salario_seller DECIMAL(15,2) NOT NULL,
   INDEX ind_vendedor_credencial (codigo_seller ASC),
   PRIMARY KEY (codigo_seller),
-  CONSTRAINT chk_soloVendedor 
-  CHECK (codigo_seller LIKE '%seller%'),
   CONSTRAINT fk_vendedor_credencial
     FOREIGN KEY (codigo_seller)
     REFERENCES CREDENCIALES (codigo_cred)
@@ -228,5 +222,5 @@ CREATE TABLE LISTA_PRODUCTOS_COMPRADOS (
     FOREIGN KEY (codigo_compra)
     REFERENCES COMPRAS (codigo_compra)
     ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB;
+    ON UPDATE CASCADE
+) ENGINE = InnoDB;
